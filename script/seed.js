@@ -1,18 +1,94 @@
 'use strict'
 
 const db = require('../server/db')
-const {User} = require('../server/db/models')
+const {User, Track} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
 
   const users = await Promise.all([
-    User.create({email: 'cody@email.com', password: '123'}),
-    User.create({email: 'murphy@email.com', password: '123'})
+    User.create({
+      firstName: 'Cody',
+      lasName: 'Pug',
+      email: 'cody@email.com',
+      password: '123'
+    }),
+    User.create({
+      firstName: 'Murphy',
+      lastName: 'Dog',
+      email: 'murphy@email.com',
+      password: '123'
+    }),
+    User.create({
+      firstName: 'Nora',
+      lastName: 'Lashner',
+      email: 'nora@email.com',
+      password: 'lee'
+    }),
+    User.create({
+      firstName: 'Max',
+      lastName: 'Sharky',
+      email: 'max@email.com',
+      password: 'shark'
+    }),
+    User.create({
+      firstName: 'Jon',
+      lastName: 'Wesner',
+      email: 'jon@email.com',
+      password: 'yummy'
+    }),
+    User.create({
+      firstName: 'Lucas',
+      lastName: 'Van Houten',
+      email: 'lucas@email.com',
+      password: 'vybes'
+    })
+  ])
+
+  const tracks = await Promise.all([
+    Track.create({
+      trackName: 'SoSick KH VERSION',
+      trackURL: 'https://soundcloud.com/four-tet/sosick-kh-version',
+      isFavorite: false,
+      isArchived: false,
+      userId: 3
+    }),
+    Track.create({
+      trackName: 'Lee Burridge Robot Heart Burning Man 2019',
+      trackURL:
+        'https://soundcloud.com/robot-heart/lee_burridge_robot_heart_burning_man_2019',
+      isFavorite: false,
+      isArchived: false,
+      userId: 5
+    }),
+    Track.create({
+      trackName: 'Township Rebellion Burning Man 2019',
+      trackURL:
+        'https://soundcloud.com/township-rebellion/township-rebellion-burning-man-2019',
+      isFavorite: false,
+      isArchived: false,
+      userId: 4
+    }),
+    Track.create({
+      trackName: 'Dixon - in our wilderness',
+      trackURL: 'https://soundcloud.com/dixon/in-our-wilderness',
+      isFavorite: false,
+      isArchived: false,
+      userId: 3
+    }),
+    Track.create({
+      trackName: 'Carlina Maxa Burning Man 2019',
+      trackURL:
+        'https://soundcloud.com/maxaxaman/carlita-maxa-burning-man-2019',
+      isFavorite: false,
+      isArchived: false,
+      userId: 3
+    })
   ])
 
   console.log(`seeded ${users.length} users`)
+  console.log(`seeded ${tracks.length} tracks`)
   console.log(`seeded successfully`)
 }
 
