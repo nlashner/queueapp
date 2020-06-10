@@ -13,7 +13,6 @@ export const fetchTracksFromServer = id => {
   return async dispatch => {
     try {
       const {data} = await axios.get('/api/tracks')
-      console.log(data)
       dispatch(getTracks(data))
     } catch (err) {
       console.error(err.message)
@@ -21,11 +20,16 @@ export const fetchTracksFromServer = id => {
   }
 }
 
-export default function tracksReducer(state = [], action) {
+const initialState = {
+  tracks: []
+}
+
+export default function tracksReducer(state = initialState, action) {
   switch (action.type) {
     case GET_TRACKS:
       return {
-        ...action.tracks
+        ...state,
+        tracks: action.tracks
       }
     default:
       return state

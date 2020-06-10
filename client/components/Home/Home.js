@@ -9,10 +9,20 @@ class Home extends Component {
   }
 
   render() {
-    console.log('user', this.props.user)
+    if (!this.props.tracks.length) return <h1>loading</h1>
+
+    const tracks = this.props.tracks
+    console.log(tracks)
+
     return (
       <div>
-        <h1> hi </h1>
+        {tracks.map(track => {
+          return (
+            <div key={track.id}>
+              <p>{track.trackName}</p>
+            </div>
+          )
+        })}
       </div>
     )
   }
@@ -21,7 +31,7 @@ class Home extends Component {
 const mapState = state => {
   return {
     user: state.user,
-    tracks: state.tracks
+    tracks: state.tracks.tracks
   }
 }
 
