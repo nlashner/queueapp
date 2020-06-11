@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchTracksFromServer} from '../../reducer/tracks'
+import './home.css'
 
 class Home extends Component {
   componentDidMount() {
