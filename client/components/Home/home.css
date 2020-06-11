@@ -29,3 +29,7 @@
   text-align: center;
   justify-content: space-evenly;
 }
+
+a.favorite:hover {
+  color: red;
+}

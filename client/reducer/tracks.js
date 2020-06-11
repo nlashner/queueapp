@@ -14,8 +14,19 @@ export const fetchTracksFromServer = id => {
     try {
       const {data} = await axios.get('/api/tracks')
       dispatch(getTracks(data))
-    } catch (err) {
-      console.error(err.message)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
+export const favoriteTrackInServer = (id, isFavorite) => {
+  return async dispatch => {
+    try {
+      const {data} = await axios.put('/api/tracks', {id, isFavorite})
+      console.log(data)
+    } catch (error) {
+      console.error(error)
     }
   }
 }

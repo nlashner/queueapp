@@ -1,13 +1,25 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {fetchTracksFromServer} from '../../reducer/tracks'
+import {
+  fetchTracksFromServer,
+  favoriteTrackInServer
+} from '../../reducer/tracks'
 import {BsFillHeartFill} from 'react-icons/bs'
 import './home.css'
 
 class Home extends Component {
+  constructor() {
+    super()
+    this.saveFavorite = this.saveFavorite.bind(this)
+  }
+
   componentDidMount() {
     const {user, getTracks} = this.props
     getTracks(user.id)
+  }
+
+  saveFavorite(id, isFavorite) {
+    this.props.favoriteTrack(id, isFavorite)
   }
 
   render() {
@@ -28,7 +40,10 @@ class Home extends Component {
               </div>
 
               <div className="track-actions">
-                <a>
+                <a
+                  className="favorite"
+                  onClick={() => this.saveFavorite(track.id, track.isFavorite)}
+                >
                   <BsFillHeartFill />
                 </a>
               </div>
@@ -49,7 +64,9 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    getTracks: id => dispatch(fetchTracksFromServer(id))
+    getTracks: id => dispatch(fetchTracksFromServer(id)),
+    favoriteTrack: (id, isFavorite) =>
+      dispatch(favoriteTrackInServer(id, isFavorite))
   }
 }
 
