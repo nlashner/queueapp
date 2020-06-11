@@ -15,4 +15,15 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+router.put('/', async (req, res, next) => {
+  try {
+    const {id, isFavorite} = req.body
+    const track = await Track.findByPk(id)
+    await track.update({isFavorite: !isFavorite})
+    res.json(track)
+  } catch (error) {
+    next(error)
+  }
+})
+
 module.exports = router
