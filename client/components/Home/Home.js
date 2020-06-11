@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchTracksFromServer} from '../../reducer/tracks'
+import {BsFillHeartFill} from 'react-icons/bs'
 import './home.css'
 
 class Home extends Component {
@@ -19,10 +20,18 @@ class Home extends Component {
         {tracks.map(track => {
           return (
             <div key={track.id} className="track-item">
-              <img src={track.imageURL} className="track-img" />
-              <a href={track.trackURL} className="link" target="blank">
-                {track.trackName}
-              </a>
+              <div className="track-info">
+                <img src={track.imageURL} className="track-img" />
+                <a href={track.trackURL} className="link" target="blank">
+                  {track.trackName}
+                </a>
+              </div>
+
+              <div className="track-actions">
+                <a>
+                  <BsFillHeartFill />
+                </a>
+              </div>
             </div>
           )
         })}

@@ -6,11 +6,17 @@
 
 .track-item {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   border: white 2px solid;
   margin: 25px 25%;
   padding: 15px;
   background-color: #696969;
+}
+
+.track-info {
+  display: flex;
+  align-items: center;
+  margin: 10px;
 }
 
 .track-img {
@@ -18,10 +24,8 @@
   margin: 20px;
 }
 
-a {
-  color: white;
-}
-
-a.hover {
-  color: coral;
+.track-actions {
+  display: flex;
+  text-align: center;
+  justify-content: space-evenly;
 }
