@@ -41,7 +41,7 @@ class Home extends Component {
 
               <div className="track-actions">
                 <a
-                  className="favorite"
+                  className={track.isFavorite ? 'favorite' : ''}
                   onClick={() => this.saveFavorite(track.id, track.isFavorite)}
                 >
                   <BsFillHeartFill />
