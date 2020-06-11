@@ -1,3 +1,27 @@
-.logo {
+.track-flex {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.track-item {
+  display: flex;
+  align-items: center;
+  border: white 2px solid;
+  margin: 25px 25%;
+  padding: 15px;
+  background-color: #696969;
+}
+
+.track-img {
+  height: 40px;
+  margin: 20px;
+}
+
+a {
   color: white;
+}
+
+a.hover {
+  color: coral;
 }

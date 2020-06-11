@@ -13,14 +13,16 @@ class Home extends Component {
     if (!this.props.tracks.length) return <h1>loading</h1>
 
     const tracks = this.props.tracks
-    console.log(tracks)
 
     return (
-      <div>
+      <div className="track-flex">
         {tracks.map(track => {
           return (
-            <div key={track.id}>
-              <p>{track.trackName}</p>
+            <div key={track.id} className="track-item">
+              <img src={track.imageURL} className="track-img" />
+              <a href={track.trackURL} className="link" target="blank">
+                {track.trackName}
+              </a>
             </div>
           )
         })}
