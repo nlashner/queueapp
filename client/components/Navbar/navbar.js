@@ -2,17 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {logout} from '../store'
+import {logout} from '../../store'
+import Logo from '../../../public/qlogoWhite.png'
+import './navbar.css'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
-    <h1>BOILERMAKER</h1>
-    <nav>
+    <img src={Logo} className="main-logo" />
+    <nav className="navbar">
       {isLoggedIn ? (
-        <div>
-          {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <a href="#" onClick={handleClick}>
+        <div className="navbar">
+          <Link to="/home" className="nav-left">
+            Home
+          </Link>
+          <a href="#" onClick={handleClick} className="nav-right">
             Logout
           </a>
         </div>
