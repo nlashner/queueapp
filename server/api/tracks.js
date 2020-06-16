@@ -15,6 +15,16 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+router.post('/', async (req, res, next) => {
+  try {
+    console.log(req.body)
+    const track = Track.create(req.body)
+    res.json(track)
+  } catch (error) {
+    next(error)
+  }
+})
+
 router.put('/', async (req, res, next) => {
   try {
     const {id, isFavorite} = req.body
