@@ -8,4 +8,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-left: 20px;
+  background-color: #524f4e;
 }
