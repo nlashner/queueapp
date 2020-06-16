@@ -13,7 +13,7 @@ const Track = db.define('track', {
   imageURL: {
     type: Sequelize.STRING,
     defaultValue:
-      'https://www.inventicons.com/uploads/iconset/1459/wm/512/Gramophone-turntable-vinyl-play-trackvintage-39.png'
+      'https://cdn0.iconfinder.com/data/icons/music-86/512/music04-512.png'
   },
   isFavorite: {
     type: Sequelize.BOOLEAN
