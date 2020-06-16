@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {
   fetchTracksFromServer,
-  favoriteTrackInServer
+  favoriteTrackInServer,
+  deleteTrackInServer
 } from '../../reducer/tracks'
 import {BsFillHeartFill} from 'react-icons/bs'
 import {FaTrash, FaArchive} from 'react-icons/fa'
@@ -21,6 +22,10 @@ class Home extends Component {
 
   saveFavorite(id, isFavorite) {
     this.props.favoriteTrack(id, isFavorite)
+  }
+
+  deleteTrack(id) {
+    this.props.deleteTrack(id)
   }
 
   render() {
@@ -47,8 +52,10 @@ class Home extends Component {
                 >
                   <BsFillHeartFill />
                 </a>
-                <FaArchive />
-                <FaTrash />
+
+                <a onClick={() => this.deleteTrack(track.id)}>
+                  <FaTrash />
+                </a>
               </div>
             </div>
           )
@@ -69,7 +76,8 @@ const mapDispatch = dispatch => {
   return {
     getTracks: id => dispatch(fetchTracksFromServer(id)),
     favoriteTrack: (id, isFavorite) =>
-      dispatch(favoriteTrackInServer(id, isFavorite))
+      dispatch(favoriteTrackInServer(id, isFavorite)),
+    deleteTrack: id => dispatch(deleteTrackInServer(id))
   }
 }
 

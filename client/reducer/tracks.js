@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const GET_TRACKS = 'GET_TRACKS'
 const FAVORITE_TRACK = 'FAVORITE_TRACK'
+const DELETE_TRACK = 'DELETE_TRACK'
 
 const getTracks = tracks => {
   return {
@@ -14,6 +15,13 @@ const favoriteTrack = track => {
   return {
     type: FAVORITE_TRACK,
     track
+  }
+}
+
+const deleteTrack = id => {
+  return {
+    type: DELETE_TRACK,
+    id
   }
 }
 
@@ -39,6 +47,17 @@ export const favoriteTrackInServer = (id, isFavorite) => {
   }
 }
 
+export const deleteTrackInServer = id => {
+  return async dispatch => {
+    try {
+      await axios.delete(`/api/tracks/${id}`)
+      dispatch(deleteTrack(id))
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
 const initialState = {
   tracks: []
 }
@@ -56,7 +75,15 @@ export default function tracksReducer(state = initialState, action) {
       trackList[idx] = action.track
       return {
         ...state,
-        tracks: trackList
+        tracks: [...trackList]
+      }
+    }
+    case DELETE_TRACK: {
+      const oldTracks = [...state.tracks]
+      const newTracks = oldTracks.filter(track => track.id !== action.id)
+      return {
+        ...state,
+        tracks: [...newTracks]
       }
     }
     default:
