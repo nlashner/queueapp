@@ -5,6 +5,7 @@ import {
   favoriteTrackInServer
 } from '../../reducer/tracks'
 import {BsFillHeartFill} from 'react-icons/bs'
+import {FaTrash, FaArchive} from 'react-icons/fa'
 import './home.css'
 
 class Home extends Component {
@@ -14,8 +15,8 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    const {user, getTracks} = this.props
-    getTracks(user.id)
+    const {getTracks} = this.props
+    getTracks()
   }
 
   saveFavorite(id, isFavorite) {
@@ -46,6 +47,8 @@ class Home extends Component {
                 >
                   <BsFillHeartFill />
                 </a>
+                <FaArchive />
+                <FaTrash />
               </div>
             </div>
           )

@@ -17,7 +17,7 @@ const favoriteTrack = track => {
   }
 }
 
-export const fetchTracksFromServer = id => {
+export const fetchTracksFromServer = () => {
   return async dispatch => {
     try {
       const {data} = await axios.get('/api/tracks')
@@ -54,7 +54,6 @@ export default function tracksReducer(state = initialState, action) {
       let trackList = state.tracks
       let idx = trackList.findIndex(obj => obj.id === action.track.id)
       trackList[idx] = action.track
-      console.log(trackList)
       return {
         ...state,
         tracks: trackList
