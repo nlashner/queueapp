@@ -6,7 +6,7 @@ import {
   deleteTrackInServer
 } from '../../reducer/tracks'
 import {BsFillHeartFill} from 'react-icons/bs'
-import {FaTrash, FaArchive} from 'react-icons/fa'
+import {FaTrash} from 'react-icons/fa'
 import './home.css'
 
 class Home extends Component {
