@@ -6,5 +6,5 @@ Queue was born from the confusion of multiple text threads with a lot of music b
 
 The front end interface is built using `React`, `Redux`, and `CSS`.  The back end uses `PostgreSQL` for data storage and `RESTful API` routes written in Express to communicate user's actions to the database via `Sequelize`.  
 
-This project is still a WIP and I look forward to contiue working on it and lauching it on the Chrome app store soon.  The repo for the Chrome extension can be found [here][https://github.com/nlashner/queue] 
+This project is still a WIP and I look forward to contiue working on it and lauching it on the Chrome app store soon.  The repo for the Chrome extension can be found [here](https://github.com/nlashner/queue)
 
