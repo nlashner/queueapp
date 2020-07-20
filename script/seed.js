@@ -84,6 +84,50 @@ async function seed() {
       isFavorite: false,
       isArchived: false,
       userId: 3
+    }),
+    Track.create({
+      trackName:
+        'The Goldcast 029 (Jul 17, 2020) Live @ Envision Festival 2020',
+      trackURL:
+        'https://soundcloud.com/goldcap/the-goldcast-029-jul-17-2020-live-envision-festival-2020',
+      isFavorite: false,
+      isArchived: false,
+      userId: 3
+    }),
+    Track.create({
+      trackName: 'HOW TO FUNK IN TWO MINUTES',
+      trackURL: 'https://www.youtube.com/watch?v=3vBwRfQbXkg',
+      isFavorite: false,
+      isArchived: false,
+      userId: 3
+    }),
+    Track.create({
+      trackName: 'RÜFÜS DU SOL - Live from Joshua Tree',
+      trackURL: 'https://www.youtube.com/watch?v=Zy4KtD98S2c',
+      isFavorite: false,
+      isArchived: false,
+      userId: 3
+    }),
+    Track.create({
+      trackName: 'The Martinez Brothers - Live from NYC (Defected WWWorldwide)',
+      trackURL: 'https://www.youtube.com/watch?v=pCVuW4slrHg',
+      isFavorite: false,
+      isArchived: false,
+      userId: 3
+    }),
+    Track.create({
+      trackName: 'Goose - Peach Fest 2019 (Full Set)',
+      trackURL: 'https://www.youtube.com/watch?v=hVfDTXbG-po',
+      isFavorite: false,
+      isArchived: false,
+      userId: 3
+    }),
+    Track.create({
+      trackName: 'Monolink (live) - Mayan Warrior - Burning Man 2018',
+      trackURL: 'https://www.youtube.com/watch?v=IvwS6BYjHG0',
+      isFavorite: false,
+      isArchived: false,
+      userId: 3
     })
   ])
 
