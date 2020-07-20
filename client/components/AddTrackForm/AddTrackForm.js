@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {addTrackToServer} from '../../reducer/tracks'
+import './addTrackForm.css'
 
 class AddTrack extends Component {
   constructor() {
@@ -25,7 +26,6 @@ class AddTrack extends Component {
     const userId = this.props.user.id
     const {trackName, trackURL} = this.state
     const track = {trackName, trackURL, userId}
-    console.log('track in form', track)
 
     await addTrack(track)
 
@@ -38,21 +38,27 @@ class AddTrack extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>Track Name:</label>
-        <input
-          type="text"
-          name="trackName"
-          value={this.state.trackName}
-          onChange={this.handleChange}
-        />
-        <label>Track URL:</label>
-        <input
-          type="text"
-          name="trackURL"
-          value={this.state.trackURL}
-          onChange={this.handleChange}
-        />
-        <button type="submit">submit</button>
+        <div className="form-flex">
+          <input
+            type="text"
+            name="trackName"
+            placeholder="Track Name"
+            className="form-input"
+            value={this.state.trackName}
+            onChange={this.handleChange}
+          />
+          <input
+            type="text"
+            name="trackURL"
+            placeholder="Track URL"
+            className="form-input"
+            value={this.state.trackURL}
+            onChange={this.handleChange}
+          />
+          <button type="submit" className="form-button">
+            Add Track
+          </button>
+        </div>
       </form>
     )
   }
