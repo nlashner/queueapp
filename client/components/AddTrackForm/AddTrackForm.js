@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {addTrackToServer} from '../../reducer/tracks'
-import './addTrackForm.css'
+import '../form.css'
 
 class AddTrack extends Component {
   constructor() {
