@@ -9,6 +9,7 @@ router.get('/', async (req, res, next) => {
         userId: id
       }
     })
+    console.log('in track')
     res.json(tracks)
   } catch (error) {
     next(error)

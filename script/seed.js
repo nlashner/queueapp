@@ -78,7 +78,7 @@ async function seed() {
       userId: 3
     }),
     Track.create({
-      trackName: 'Carlina Maxa Burning Man 2019',
+      trackName: 'Carlita Maxa Burning Man 2019',
       trackURL:
         'https://soundcloud.com/maxaxaman/carlita-maxa-burning-man-2019',
       isFavorite: false,

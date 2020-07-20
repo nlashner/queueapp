@@ -3,6 +3,7 @@ import axios from 'axios'
 const GET_TRACKS = 'GET_TRACKS'
 const FAVORITE_TRACK = 'FAVORITE_TRACK'
 const DELETE_TRACK = 'DELETE_TRACK'
+const ADD_TRACK = 'ADD_TRACK'
 
 const getTracks = tracks => {
   return {
@@ -22,6 +23,13 @@ const deleteTrack = id => {
   return {
     type: DELETE_TRACK,
     id
+  }
+}
+
+const addTrack = track => {
+  return {
+    type: ADD_TRACK,
+    track
   }
 }
 
@@ -58,6 +66,18 @@ export const deleteTrackInServer = id => {
   }
 }
 
+export const addTrackToServer = track => {
+  return async dispatch => {
+    try {
+      console.log('in thunk, track', track)
+      await axios.post(`/api/tracks`, track)
+      dispatch(addTrack(track))
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
 const initialState = {
   tracks: []
 }
@@ -84,6 +104,12 @@ export default function tracksReducer(state = initialState, action) {
       return {
         ...state,
         tracks: [...newTracks]
+      }
+    }
+    case ADD_TRACK: {
+      return {
+        ...state,
+        tracks: [...state.tracks, action.track]
       }
     }
     default:
